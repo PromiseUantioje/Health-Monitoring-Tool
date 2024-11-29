@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Disease Detection Tool</title>
+</head>
+<body>
+    <h1>Symptoms</h1>
+    <form id="symptom-form">
+        <label for="symptoms">Describe Your Symptoms:</label><br>
+        <textarea id="symptoms" rows="5" cols="30" placeholder="e.g., cough, fever, headache, cold"></textarea><br>
+        
+        <label for="duration">How long have you had these symptoms?</label><br>
+        <select id="duration">
+            <option value="1-3 days">1-3 days</option>
+            <option value="4-7 days">4-7 days</option>
+            <option value="more than a week">More than a week</option>
+        </select><br>
+        
+        <button type="submit">Check Symptoms</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        document.getElementById("symptom-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const symptoms = document.getElementById("symptoms").value.toLowerCase();
+            const duration = document.getElementById("duration").value;
+
+            let advice = "";
+            
+            // Simple logic for symptom analysis (this can be expanded later with AI or APIs)
+            if (symptoms.includes("fever") && symptoms.includes("cough") && duration === "1-3 days") {
+                advice = "You may be experiencing flu-like symptoms. Please consult a healthcare professional.";
+            } else if (symptoms.includes("headache") && symptoms.includes("neck stiffness")) {
+                advice = "This could be a sign of a serious condition, such as meningitis. Seek medical attention immediately.";
+            } else {
+                advice = "Your symptoms are common but could vary. If they persist or worsen, please visit a clinic.";
+            }
+
+            document.getElementById("results").innerText = "Advice: " + advice;
+        });
+    </script>
+</body>
+</html>

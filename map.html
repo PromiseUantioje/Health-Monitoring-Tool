@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map</title>
+    <style>
+        /* Style for the map container */
+        #map {
+            height: 100vh; /* Full-page height */
+            width: 100%;  /* Full width */
+        }
+    </style>
+</head>
+<body>
+    <h1>My Google Map</h1>
+    <div id="map"></div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location (latitude, longitude)
+            const location = { lat: 40.730610, lng: -73.935242 }; // Example: New York
+            // The map, centered at the location
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: location,
+            });
+            // The marker, positioned at the location
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+    </script>
+    <!-- Include the Google Maps API script -->
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=API_KEYAIzaSyDodIbhfRsNXw1CGLR12Ux9mZGSycYPom8">
+    </script>
+</body>
+</html>

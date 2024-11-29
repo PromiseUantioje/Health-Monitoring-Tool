@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support</title>
+</head>
+<body>
+    <h1>Mental Health Check-In</h1>
+    <form id="mood-form">
+        <label for="mood">How are you feeling today?</label><br>
+        <select id="mood" required>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="anxious">Anxious</option>
+            <option value="angry">Angry</option>
+        </select><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="resources"></div>
+
+    <script>
+        document.getElementById("mood-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const mood = document.getElementById("mood").value;
+            let advice = "Resources: ";
+            switch (mood) {
+                case "happy":
+                    advice += "Keep a gratitude journal!";
+                    break;
+                case "sad":
+                    advice += "Try reaching out to a friend.";
+                    break;
+                case "anxious":
+                    advice += "Practice deep breathing exercises.";
+                    break;
+                case "angry":
+                    advice += "Go for a walk to cool off.";
+                    break;
+            }
+            document.getElementById("resources").innerText = advice;
+        });
+    </script>
+</body>
+</html>
